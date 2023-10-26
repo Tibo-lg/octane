@@ -12,6 +12,7 @@ export async function validateTransaction(
     lamportsPerSignature: number
 ): Promise<{ signature: TransactionSignature; rawTransaction: Buffer }> {
     console.log("validateTransaction(): transaction=" + transaction);
+    console.log("validateTransaction(): transaction.signatures=" + transaction.signatures);
     // Check the fee payer and blockhash for basic validity
     if (!transaction.feePayer?.equals(feePayer.publicKey)) throw new Error('invalid fee payer');
     if (!transaction.recentBlockhash) throw new Error('missing recent blockhash');
@@ -28,7 +29,6 @@ export async function validateTransaction(
     if (transaction.signatures.length > maxSignatures) throw new Error('too many signatures');
 
     const [primary, ...secondary] = transaction.signatures;
-    console.log("validateTransaction(): transaction.signatures=" + transaction.signatures);
     console.log("validateTransaction(): primary=" + primary);
     console.log("validateTransaction(): secondary=" + secondary);
     if (!primary.publicKey.equals(feePayer.publicKey)) throw new Error('invalid fee payer pubkey');
