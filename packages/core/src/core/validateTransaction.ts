@@ -28,16 +28,25 @@ export async function validateTransaction(
     if (transaction.signatures.length > maxSignatures) throw new Error('too many signatures');
 
     const [primary, ...secondary] = transaction.signatures;
+    console.log("validateTransaction(): transaction.signatures=" + transaction.signatures);
+    console.log("validateTransaction(): primary=" + primary);
+    console.log("validateTransaction(): secondary=" + secondary);
     if (!primary.publicKey.equals(feePayer.publicKey)) throw new Error('invalid fee payer pubkey');
+    console.log("validateTransaction(): primary.publicKey=" + primary.publicKey);
     if (primary.signature) throw new Error('invalid fee payer signature');
+    console.log("validateTransaction(): primary.signature=" + primary.signature);
 
     for (const signature of secondary) {
+        console.log("validateTransaction(): signature=" + signature);
         if (!signature.publicKey) throw new Error('missing public key');
+        console.log("validateTransaction(): signature.publicKey=" + signature.publicKey);
         if (!signature.signature) throw new Error('missing signature');
+        console.log("validateTransaction(): signature.signature=" + signature.signature);
     }
 
     // Add the fee payer signature
     transaction.partialSign(feePayer);
+    console.log("validateTransaction(): transaction.signature="+transaction.signature);
 
     // Serialize the transaction, verifying the signatures
     const rawTransaction = transaction.serialize();
