@@ -28,7 +28,6 @@ export default async function (request: NextApiRequest, response: NextApiRespons
     let transaction: Transaction;
     try {
         console.log("transfer: serialized=" + serialized);
-        console.log("transfer: decoded=" + base58.decode(serialized));
         transaction = Transaction.from(base58.decode(serialized));
         console.log("transfer: transaction=" + transaction);
     } catch (e) {
