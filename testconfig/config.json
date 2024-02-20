@@ -1,0 +1,50 @@
+{
+    "rpcUrl": "http://solana:8899",
+    "maxSignatures": 3,
+    "lamportsPerSignature": 5000,
+    "corsOrigin": true,
+    "mediciProgramId": "5NWcLuTAUDFoxceLQSVs968xaTJjZxYSQFN5sKNEw85Z",
+    "returnSignature": { "type": "allowAll" },
+    "endpoints": {
+        "transfer": {
+            "tokens": [
+                {
+                    "mint": "BW9H5X3um1a31b2EX7988xSTeQfMDK7A5a3jjuUDgTd4",
+                    "account": "7UgbDjXY9iX3gNYzfAaDhoBX3SuFzs3SAYAJgqFxsomS",
+                    "decimals": 6,
+                    "fee": 500000
+                }
+            ]
+        },
+        "createAssociatedTokenAccount": {
+            "tokens": [
+                {
+                    "mint": "BW9H5X3um1a31b2EX7988xSTeQfMDK7A5a3jjuUDgTd4",
+                    "account": "7UgbDjXY9iX3gNYzfAaDhoBX3SuFzs3SAYAJgqFxsomS",
+                    "decimals": 6,
+                    "fee": 500000
+                }
+            ]
+        },
+        "whirlpoolsSwap": {
+            "tokens": [
+                {
+                    "mint": "BW9H5X3um1a31b2EX7988xSTeQfMDK7A5a3jjuUDgTd4",
+                    "account": "7UgbDjXY9iX3gNYzfAaDhoBX3SuFzs3SAYAJgqFxsomS",
+                    "decimals": 6,
+                    "fee": 500000
+                }
+            ]
+        },
+        "mediciAction": {
+            "tokens": [
+                {
+                    "mint": "BW9H5X3um1a31b2EX7988xSTeQfMDK7A5a3jjuUDgTd4",
+                    "account": "7UgbDjXY9iX3gNYzfAaDhoBX3SuFzs3SAYAJgqFxsomS",
+                    "decimals": 6,
+                    "fee": 500000
+                }
+            ]
+        }
+    }
+}
